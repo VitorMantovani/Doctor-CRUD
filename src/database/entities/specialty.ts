@@ -9,10 +9,6 @@ export class Specialty {
     
     @Column()
     name: string;
-
-    @ManyToOne(() => Doctor, doctor => doctor.specialty)
-    @JoinColumn()
-    doctors: Doctor;
 }
 
 
