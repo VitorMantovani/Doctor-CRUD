@@ -36,6 +36,13 @@ export class DoctorRepository {
         return this.repository.find()
     }
 
+    async selectByCrm(crm: string): Promise<Doctor | null> {
+        return await this.repository
+        .createQueryBuilder("doctor")
+        .where("doctor.crm = :crm", {crm: crm})
+        .getOneOrFail()
+    }
+
     async deleteByCrm(crm: string){
         return await this.repository.softDelete(crm);
     }
